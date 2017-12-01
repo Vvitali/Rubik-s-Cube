@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas</title>
+</head>
+<body>
+	<canvas id="canvas" ></canvas>
+	<script type="text/javascript">
+		var canvas = document.getElementById('canvas');
+		var ctx = canvas.getContext('2d');
+		var width = 900;
+		var height = 900;
+		canvas.width  = width;
+		canvas.height = height;
+		// ctx.fillStyle = 'green';
+		// ctx.fillRect(0, 0, 30, 30);
+		// ctx.fillStyle = "red";
+		// ctx.fillRect(30,0,30,30)
+		// ctx.fillStyle = "gray";
+		// ctx.fillRect(60,0,30,30)
+		var collors = ["black","white"];
+		//var collors = ["yellow", "blue", "green",  "red", "white", "orange"]
+		var length = collors.length;
+		ctx.strokeStyle = 'black';
+		var amountOfElements = 100
+		var sizeOfElement = height/amountOfElements;
+		console.log(amountOfElements*amountOfElements)
+		setInterval(function(){
+			for(var i = 0; i<width; i+=sizeOfElement){
+				for(var y = 0; y<height; y+=sizeOfElement){
+					ctx.fillStyle = collors[Math.floor(Math.random()*(length-0))];
+					ctx.fillRect(y, i, sizeOfElement ,sizeOfElement);
+					ctx.strokeRect(y, i, sizeOfElement, sizeOfElement)
+				}
+			}
+		}, 100)
+		
+		
+	</script>
+
+</body>
+</html>
